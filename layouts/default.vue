@@ -1,18 +1,22 @@
 <template>
   <v-app dark>
-    <div class="page-header pa-5 secondary justify-start align-end d-flex d-md-none">
-      <div class="d-flex align-center">
-        <img src="/img/profile-pic.png" width="120" alt="">
-        <div class="mr-2">
+    <div class="page-header pa-5 secondary justify-start align-end d-flex d-sm-none">
+      <div class="d-flex align-center flex-column flex-sm-row text-center text-sm-right">
+        <img src="/img/profile-pic.png" width="120" alt="profile picture">
+        <div class="mt-4">
           <h3>استودیو دیزاین و خلاقیت</h3>
           <h4>مهدی ثمن گویی</h4>
           <v-divider class="my-2" />
           <h4>طراحی لوگو و هویت بصری برند</h4>
         </div>
       </div>
+      <!-- <img src="/img/lamp-on.svg" alt="lamp" class="lamp"> -->
+      <!-- <img src="/img/lamp-off.svg" alt="lamp" class="lamp-off"> -->
+      <mobile-lamp />
     </div>
-    <div class="d-none d-md-flex align-center justify-center">
-      <img src="/img/desk-off.svg" alt="desk-off" class="desk">
+    <div class="d-none d-sm-block">
+      <!-- <img src="/img/desk-off.svg" alt="desk-off" class="desk"> -->
+      <desk />
     </div>
     <v-main>
       <v-container>
@@ -35,10 +39,7 @@ export default {
 
 <style scoped>
 .page-header {
-  height: 250px;
-}
-.desk {
-  width: 100%;
-  max-width: 1200px;
+  height: 300px;
+  position: relative;
 }
 </style>
