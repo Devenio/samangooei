@@ -103,54 +103,54 @@
     <!-- mobile other pages menu -->
     <v-container class="m-menu grey lighten-2 d-sm-none" v-if="$route.path !== '/'">
       <v-row class="justify-center">
-        <v-col cols="4">
+        <v-col cols="4" class="btn-col">
           <v-btn to="/about" rounded class="btn eq-btn">
             درباره من
           </v-btn>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="4" class="btn-col">
           <v-btn to="/portfolio" rounded class="btn eq-btn">
             نمونه کار
           </v-btn>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="4" class="btn-col">
           <v-btn to="/comments" rounded class="btn eq-btn">
             نظر مشتریان
           </v-btn>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="4" class="btn-col">
           <v-btn to="/blogs" rounded class="btn eq-btn">
             دست نوشته
           </v-btn>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="4" class="btn-col">
           <v-btn to="/order" rounded class="btn eq-btn">
             فرم سفارش
           </v-btn>
         </v-col>
-        <v-col cols="4">
-          <v-btn to="/comments" rounded class="btn eq-btn">
-            نظر مشتریان
+        <v-col cols="4" class="btn-col">
+          <v-btn to="/consult" rounded class="btn eq-btn">
+            رزرو مشاوره
           </v-btn>
         </v-col>
-        <v-col cols="4">
-          <v-btn to="/about" rounded class="btn eq-btn">
-            درباره من
+        <v-col cols="4" class="btn-col">
+          <v-btn to="/contact" rounded class="btn eq-btn">
+            تماس با من
           </v-btn>
         </v-col>
-        <v-col cols="4">
-          <v-btn to="/portfolio" rounded class="btn eq-btn">
-            نمونه کار
+        <v-col cols="4" class="btn-col">
+          <v-btn to="/insta" rounded class="btn eq-btn">
+            اینستاگرام
           </v-btn>
         </v-col>
-        <v-col cols="4">
-          <v-btn to="/comments" rounded class="btn eq-btn">
-            نظر مشتریان
+        <v-col cols="4" class="btn-col">
+          <v-btn to="/faq" rounded class="btn eq-btn">
+            برخی سوالات
           </v-btn>
         </v-col>
       </v-row>
     </v-container>
-    <v-main>
+    <v-main class="pb-10">
       <v-container style="max-width: 1100px">
         <nuxt />
       </v-container>
@@ -189,11 +189,15 @@ export default {
   background-color: #ccc;
   box-shadow: inset 3px 3px 5px 0px #00000050;
 }
+.btn-col {
+  padding: 5px 10px;
+}
 .eq-btn {
   width: 100%;
 }
 .m-menu {
   position: fixed;
   bottom: 0;
+  z-index: 50;
 }
 </style>
