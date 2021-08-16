@@ -47,6 +47,7 @@ export default {
   position: absolute;
   top: 0px;
   left: 0px;
+  z-index: 50;
   /* display: none; */
 }
 .lamp-off {
@@ -55,6 +56,7 @@ export default {
   top: 0px;
   left: 0px;
   overflow: hidden;
+  z-index: 50;
 }
 .lamp {
   cursor: pointer;

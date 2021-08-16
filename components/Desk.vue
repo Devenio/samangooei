@@ -32,7 +32,10 @@
           width="268.97"
           height="285.415"
           fill="url(#pattern2)"
-        />
+          @click="$router.push('/portfolio')"
+        >
+          <title>نمونه کارها</title>
+        </rect>
         <rect
           id="flower-pot"
           x="956.013"
@@ -64,7 +67,10 @@
           width="297.11"
           height="281.395"
           fill="url(#pattern6)"
-        />
+          @click="$router.push('/order')"
+        >
+          <title>فرم سفارش</title>
+        </rect>
         <rect
           id="instagram-phone"
           x="824.452"
@@ -72,7 +78,9 @@
           width="139.601"
           height="166.279"
           fill="url(#pattern7)"
-        />
+        >
+          <title>اینستاگرام</title>
+        </rect>
         <rect
           id="laptop"
           x="399.435"
@@ -95,7 +103,10 @@
           width="346.445"
           height="334.385"
           fill="url(#pattern10)"
-        />
+          @click="$router.push('/blogs')"
+        >
+          <title>دست نوشته ها</title>
+        </rect>
         <rect
           id="contact"
           x="107.442"
@@ -103,7 +114,10 @@
           width="175.415"
           height="133.754"
           fill="url(#pattern11)"
-        />
+          @click="$router.push('/contact')"
+        >
+          <title>تماس با من</title>
+        </rect>
         <rect
           id="contact_2"
           x="212.691"
@@ -111,7 +125,10 @@
           width="90.9967"
           height="105.615"
           fill="url(#pattern12)"
-        />
+          @click="$router.push('/contact')"
+        >
+          <title>تماس با من</title>
+        </rect>
         <rect
           id="Consulting"
           x="95.0166"
@@ -119,7 +136,10 @@
           width="200.266"
           height="207.94"
           fill="url(#pattern13)"
-        />
+          @click="$router.push('/consult')"
+        >
+          <title>رزرو مشاوره</title>
+        </rect>
         <rect
           id="FAQ"
           x="226.578"
@@ -127,7 +147,10 @@
           width="249.236"
           height="191.495"
           fill="url(#pattern14)"
-        />
+          @click="$router.push('/faq')"
+        >
+          <title>برخی سوالات</title>
+        </rect>
         <rect
           id="lamp"
           y="45.6812"
@@ -143,7 +166,10 @@
           width="153.123"
           height="143.987"
           fill="url(#pattern16)"
-        />
+          @click="$router.push('/about')"
+        >
+          <title>درباره من</title>
+        </rect>
         <rect
           id="customer-comments"
           x="700.199"
@@ -151,7 +177,10 @@
           width="93.9202"
           height="69.8007"
           fill="url(#pattern17)"
-        />
+          @click="$router.push('/comments')"
+        >
+          <title>نظر مشتریان</title>
+        </rect>
         <rect
           id="customer-comments_2"
           x="794.12"
@@ -159,7 +188,10 @@
           width="100.133"
           height="100.864"
           fill="url(#pattern18)"
-        />
+          @click="$router.push('/comments')"
+        >
+          <title>نظر مشتریان</title>
+        </rect>
       </g>
       <defs>
         <pattern
@@ -928,7 +960,7 @@ export default {
   data() {
     return {
       isOn: false
-    }
+    };
   }
 };
 </script>
@@ -942,7 +974,8 @@ export default {
 #group-2 rect:hover {
   transform: scale(1.005);
 }
-#group-2 rect, #lamp {
+#group-2 rect,
+#lamp {
   cursor: pointer;
   transition: transform 200ms;
 }
