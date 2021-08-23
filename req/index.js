@@ -22,5 +22,12 @@ export const About = {
             method: "GET",
             url: "/about/SocialMedia"
         })
+    },
+    contact: data => {
+        return api({
+            method: "POST",
+            url: "/about/Contact",
+            data: data
+        })
     }
 }
