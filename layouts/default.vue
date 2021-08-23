@@ -150,7 +150,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-main class="pb-10">
+    <v-main style="margin-bottom: 200px">
       <v-container style="max-width: 1100px">
         <nuxt />
       </v-container>
