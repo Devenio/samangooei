@@ -17,6 +17,7 @@
               rounded-lg
               suffix="98+"
               :rules="phoneRules"
+              class="mt-1"
               v-model="formData.phone"
             ></v-text-field>
             <v-text-field
@@ -24,6 +25,7 @@
               filled
               rounded-lg
               :rules="emailRules"
+              class="mt-1"
               v-model="formData.email"
             ></v-text-field>
             <v-text-field
@@ -31,6 +33,7 @@
               filled
               rounded-lg
               :rules="requireRules"
+              class="mt-1"
               v-model="formData.favorite"
             ></v-text-field>
           </v-col>
@@ -110,11 +113,11 @@ export default {
     return {
       valid: false,
       formData: {
-        name: "asdasdsd",
-        phone: "9019622899",
-        email: "adasd@gmail.com",
-        favorite: "adsdasd",
-        text: "asdasdd"
+        name: "",
+        phone: "",
+        email: "",
+        favorite: "",
+        text: ""
       },
       loading: false,
       snackbar: false,

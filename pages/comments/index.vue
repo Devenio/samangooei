@@ -64,7 +64,7 @@
         :key="index"
       >
         <v-list-item class="">
-          <v-list-item-avatar tile size="50" color="primary" class="text-h5">
+          <v-list-item-avatar tile size="50" color="primary" class="text-h5 d-flex justify-center align-center">
             {{ item.number }}
           </v-list-item-avatar>
           <v-list-item-content>

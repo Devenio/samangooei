@@ -124,7 +124,7 @@
           </v-btn>
         </v-col>
         <v-col cols="4" class="btn-col">
-          <v-btn to="/order" rounded class="btn eq-btn">
+          <v-btn to="/order/mobile" rounded class="btn eq-btn">
             فرم سفارش
           </v-btn>
         </v-col>

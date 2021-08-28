@@ -35,7 +35,7 @@
 export default {
   data() {
     return {
-      isOn: false
+      isOn: true
     }
   }
 };

@@ -46,3 +46,36 @@ export const Comments = {
     });
   }
 };
+
+export const Services = {
+  getAllWorkSamples: () => {
+    return api({
+      method: "GET",
+      url: "/service/ListWorkSample"
+    });
+  },
+  getAllProductOrders: () => {
+    return api({
+      method: "GET",
+      url: "/service/ListProductOrder"
+    });
+  },
+  getRandomProductOrder: () => {
+    return api({
+      method: "GET",
+      url: "/service/GetRandomObjectProductOrder"
+    });
+  },
+  getRandomWorkSample: () => {
+    return api({
+      method: "GET",
+      url: "/service/Get6RandomObjectWorkSample"
+    });
+  },
+  getWorkSampleDetail: id => {
+    return api({
+      method: "GET",
+      url: `/service/DetailWorkSample/${id}`
+    });
+  }
+};
