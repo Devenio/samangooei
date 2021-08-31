@@ -12,7 +12,7 @@
           </v-stepper-step>
           <v-divider></v-divider>
           <v-stepper-step :complete="step > 3" step="3">
-            قدم سوم
+            پرداخت
           </v-stepper-step>
         </v-stepper-header>
 
@@ -104,7 +104,7 @@
                     <v-text-field filled v-model="title" label="موضوع">
                     </v-text-field>
                   </v-col>
-                  <v-col cols="12" md="4">
+                  <v-col cols="12">
                     <v-textarea
                       filled
                       v-model="text"
@@ -119,14 +119,14 @@
                   </v-btn>
                   <v-spacer />
                   <v-btn color="primary" :disabled="!valid2" @click="step++">
-                    بعدی
+                    پرداخت
                   </v-btn>
                 </div>
               </v-form>
             </v-card>
           </v-stepper-content>
 
-          <v-stepper-content step="3">
+          <!-- <v-stepper-content step="3">
             <v-card class="d-flex flex-column align-center">
               <v-card-title justify-center>
                 برای تکمیل رزرو لطفا روی دکمه زیر کلیک کنید و پرداخت را انجام
@@ -136,7 +136,7 @@
                 پرداخت
               </v-btn>
             </v-card>
-          </v-stepper-content>
+          </v-stepper-content> -->
         </v-stepper-items>
       </v-stepper>
     </v-col>
@@ -223,27 +223,59 @@ export default {
             let data = {
               text: `ساعت ${(i + "").replace(".5", ":30")} تا ${nextTime}`,
               value: {
-                startTime: i,
-                endTime: i + 0.5
+                startTime: i + "",
+                endTime: i + 0.5 + ""
               }
             };
             this.hours.push(data);
           }
+          this.filterHours("remote");
         } else {
           for (let i = date.startTime; i < date.endTime; i++) {
+            console.log(i);
             let data = {
-              text: `ساعت ${i} تا ${(i += 1)}`,
+              text: `ساعت ${i} تا ${i + 1}`,
               value: {
-                startTime: i,
-                endTime: i + 1
+                startTime: i + "",
+                endTime: i + 1 + ""
               }
             };
             this.hours.push(data);
           }
+          this.filterHours("present");
         }
       }
     },
-    nextStep() {}
+    nextStep() {},
+    filterHours(type) {
+      try {
+        const datas = [];
+        const filteredHours = [];
+        if (type === "remote") {
+          this.reservedDays.filter(day => {
+            day.type === 1 ? datas.push(day) : "";
+          });
+        } else {
+          this.reservedDays.filter(day => {
+            day.type === 0 ? datas.push(day) : "";
+          });
+        }
+        datas.filter(data => {
+          this.hours.find((hour, index) => {
+            if (
+              +data.startBookingTime == +hour.value.startTime &&
+              this.date.replaceAll("/", "-") == data.dayBooking
+            ) {
+              this.hours.splice(index, 1);
+            }
+          });
+        });
+
+        // console.log("datas", filteredHours);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
 };
 </script>
