@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://194.62.43.132"
+  baseURL: "http://api.mahdisamangooei.com/"
 });
 
 export const About = {
@@ -79,3 +79,41 @@ export const Services = {
     });
   }
 };
+
+export const  Blogs = {
+  get3Blogs: () => {
+    return api({
+      method: "GET",
+      url: "/Blog/api"
+    })
+  }
+};
+
+export const Customers = {
+  addPresentBooking: data => {
+    return api({
+      method: "POST",
+      url: "/customer/AddPresentBooking/",
+      data
+    })
+  },
+  addRemoteBooking: data => {
+    return api({
+      method: "POST",
+      url: "/customer/AddRemoteBooking/",
+      data
+    })
+  },
+  getReservedDays: () => {
+    return api({
+      method: "GET",
+      url: "/customer/ShowReservedDay/"
+    })
+  },
+  getWorkingDays: () => {
+    return api({
+      method: "GET",
+      url: "/customer/ShowWorkingDay/"
+    })
+  },
+}
