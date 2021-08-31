@@ -61,6 +61,7 @@
                       item-text="text"
                       item-value="value"
                       :disabled="!date"
+                      v-model="time"
                     >
                     </v-select>
                   </v-col>
@@ -118,7 +119,12 @@
                     قبلی
                   </v-btn>
                   <v-spacer />
-                  <v-btn color="primary" :disabled="!valid2" @click="step++">
+                  <v-btn
+                    color="primary"
+                    :disabled="!valid2"
+                    @click="addBook()"
+                    :loading="loading"
+                  >
                     پرداخت
                   </v-btn>
                 </div>
@@ -169,7 +175,6 @@ export default {
   data() {
     return {
       step: 1,
-      date: "",
       menu: false,
       menu2: false,
       modal: false,
@@ -184,12 +189,15 @@ export default {
         { name: "حضوری", value: "present" },
         { name: "غیرحضوری", value: "remote" }
       ],
+      date: "",
+      time: "",
       name: "",
       phone: "",
       title: "",
       text: "",
       type: "",
-      hours: []
+      hours: [],
+      loading: false
     };
   },
   watch: {
@@ -274,6 +282,54 @@ export default {
         // console.log("datas", filteredHours);
       } catch (error) {
         console.log(error);
+      }
+    },
+    addBook() {
+      this.loading = true;
+      if (this.type === "remote") {
+        const data = {
+          dayBooking: {
+            day: this.date.replaceAll("/", "-")
+          },
+          remoteBooking: {
+            StartBookingTime: this.time.startTime,
+            EndBookingTime: this.time.endTime
+          },
+          name: this.name,
+          phone: this.phone,
+          subject: this.title,
+          text: this.text
+        };
+        Customers.addRemoteBooking(data)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+          .finally(() => (this.loading = false));
+      } else {
+        const data = {
+          dayBooking: {
+            day: this.date.replaceAll("/", "-")
+          },
+          presentBooking: {
+            StartBookingTime: this.time.startTime,
+            EndBookingTime: this.time.endTime
+          },
+          name: this.name,
+          phone: this.phone,
+          subject: this.title,
+          text: this.text
+        };
+        Customers.addPresentBooking(data)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          })
+          .finally(() => (this.loading = false));
       }
     }
   }
