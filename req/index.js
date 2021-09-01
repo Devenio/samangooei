@@ -80,12 +80,12 @@ export const Services = {
   }
 };
 
-export const  Blogs = {
+export const Blogs = {
   get3Blogs: () => {
     return api({
       method: "GET",
       url: "/Blog/api"
-    })
+    });
   }
 };
 
@@ -95,25 +95,38 @@ export const Customers = {
       method: "POST",
       url: "/customer/AddPresentBooking/",
       data
-    })
+    });
   },
   addRemoteBooking: data => {
     return api({
       method: "POST",
       url: "/customer/AddRemoteBooking/",
       data
-    })
+    });
   },
   getReservedDays: () => {
     return api({
       method: "GET",
       url: "/customer/ShowReservedDay/"
-    })
+    });
   },
   getWorkingDays: () => {
     return api({
       method: "GET",
       url: "/customer/ShowWorkingDay/"
-    })
+    });
   },
-}
+  postId: id => {
+    return api({
+      method: "POST",
+      url: "/customer/result/",
+      data: {
+        id
+      },
+      headers: {
+        Authorization:
+          "PMAK-60dc400b62431c0052e3bf8a-45f94ad9cc9057593689faaa10dcb83eb"
+      }
+    });
+  }
+};

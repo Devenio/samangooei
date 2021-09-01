@@ -131,18 +131,6 @@
               </v-form>
             </v-card>
           </v-stepper-content>
-
-          <!-- <v-stepper-content step="3">
-            <v-card class="d-flex flex-column align-center">
-              <v-card-title justify-center>
-                برای تکمیل رزرو لطفا روی دکمه زیر کلیک کنید و پرداخت را انجام
-                دهید
-              </v-card-title>
-              <v-btn color="success" large>
-                پرداخت
-              </v-btn>
-            </v-card>
-          </v-stepper-content> -->
         </v-stepper-items>
       </v-stepper>
     </v-col>
@@ -240,7 +228,6 @@ export default {
           this.filterHours("remote");
         } else {
           for (let i = date.startTime; i < date.endTime; i++) {
-            console.log(i);
             let data = {
               text: `ساعت ${i} تا ${i + 1}`,
               value: {
@@ -254,7 +241,6 @@ export default {
         }
       }
     },
-    nextStep() {},
     filterHours(type) {
       try {
         const datas = [];
@@ -278,8 +264,6 @@ export default {
             }
           });
         });
-
-        // console.log("datas", filteredHours);
       } catch (error) {
         console.log(error);
       }
@@ -302,12 +286,15 @@ export default {
         };
         Customers.addRemoteBooking(data)
           .then(res => {
-            console.log(res);
+            console.log(res.data.data);
+            this.sendCustomerReq(res.data);
           })
           .catch(err => {
             console.log(err);
           })
-          .finally(() => (this.loading = false));
+          .finally(() => {
+            this.loading = false;
+          });
       } else {
         const data = {
           dayBooking: {
@@ -325,12 +312,20 @@ export default {
         Customers.addPresentBooking(data)
           .then(res => {
             console.log(res);
+            this.sendCustomerReq(res.data);
           })
           .catch(err => {
             console.log(err);
           })
-          .finally(() => (this.loading = false));
+          .finally(() => {
+            this.loading = false;
+          });
       }
+    },
+    sendCustomerReq(id) {
+      console.log(id);
+      localStorage.setItem("id", id);
+      window.open(`http://api.mahdisamangooei.com/customer/request/${id}`);
     }
   }
 };
