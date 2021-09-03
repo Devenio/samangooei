@@ -79,6 +79,9 @@ export default {
         faq: []
       };
     }
+  },
+  mounted () {
+    window.scrollTo(0,document.body.scrollHeight);
   }
 };
 </script>

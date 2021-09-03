@@ -327,6 +327,9 @@ export default {
       localStorage.setItem("id", id);
       window.open(`http://api.mahdisamangooei.com/customer/request/${id}`);
     }
+  },
+  mounted () {
+    window.scrollTo(0,document.body.scrollHeight);
   }
 };
 </script>

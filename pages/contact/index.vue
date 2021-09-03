@@ -170,6 +170,9 @@ export default {
             this.loading = false;
         })
     }
+  },
+  mounted () {
+    window.scrollTo(0,document.body.scrollHeight);
   }
 };
 </script>

@@ -162,6 +162,7 @@ export default {
         item.previousElementSibling.classList.toggle("open");
       });
     });
+    window.scrollTo(0,document.body.scrollHeight);
   }
 };
 </script>
@@ -172,7 +173,7 @@ img {
   height: 100%;
   min-height: 200px;
   max-height: 200px;
-  object-fit: contain;
+  object-fit: cover;
   overflow: hidden;
   /* border: 1px solid #000; */
 }

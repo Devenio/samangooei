@@ -18,7 +18,7 @@
       <mobile-lamp />
     </div>
     <v-container class="d-none d-sm-block">
-      <desk />
+      <LazyDesk />
     </v-container>
     <v-container class="pt-10 d-block d-sm-none" v-if="$route.path === '/'">
       <v-row>
@@ -119,7 +119,7 @@
           </v-btn>
         </v-col>
         <v-col cols="4" class="btn-col">
-          <v-btn to="/blogs" rounded class="btn eq-btn">
+          <v-btn href="http://mahdisamangooei.com/Blog/" rounded class="btn eq-btn">
             دست نوشته
           </v-btn>
         </v-col>

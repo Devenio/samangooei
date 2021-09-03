@@ -20,7 +20,11 @@
       </p>
     </v-col>
     <v-divider vertical></v-divider>
-    <v-col cols="12" sm="4" class="d-flex justify-center align-center mt-16 mt-sm-0">
+    <v-col
+      cols="12"
+      sm="4"
+      class="d-flex justify-center align-center mt-16 mt-sm-0"
+    >
       <img
         :src="image"
         :alt="currentItemTitle"
@@ -55,8 +59,11 @@ export default {
     }
   },
   mounted() {
-    this.currentItemTitle = this.data[0].title;
-    this.changeTab(this.data[0])
+    if (this.data[0]) {
+      this.currentItemTitle = this.data[0].title;
+      this.changeTab(this.data[0]);
+    }
+    window.scrollTo(0,document.body.scrollHeight);
   },
   methods: {
     changeTab(item) {

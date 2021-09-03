@@ -68,8 +68,11 @@ export default {
     }
   },
   mounted() {
-    this.currentItemId = this.data[0].id;
-    this.changeTab(this.data[0]);
+    if (this.data[0]) {
+      this.currentItemId = this.data[0].id;
+      this.changeTab(this.data[0]);
+    }
+    window.scrollTo(0,document.body.scrollHeight);
   }
 };
 </script>

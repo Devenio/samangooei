@@ -103,7 +103,7 @@
           width="346.445"
           height="334.385"
           fill="url(#pattern10)"
-          @click="$router.push('/blogs')"
+          @click="openBlog()"
         >
           <title>دست نوشته ها</title>
         </rect>
@@ -961,6 +961,11 @@ export default {
     return {
       isOn: true
     };
+  },
+  methods: {
+    openBlog() {
+      window.open('http://mahdisamangooei.com/Blog/')
+    }
   }
 };
 </script>
