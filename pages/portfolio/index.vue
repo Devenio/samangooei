@@ -135,7 +135,6 @@ export default {
       const details = [];
       data.forEach(async item => {
         const detail = await Services.getWorkSampleDetail(item.id);
-        console.log(detail);
         details.push(detail.data);
       });
       const randomWorkSample = await Services.getRandomWorkSample();
@@ -155,15 +154,14 @@ export default {
   },
   mounted() {
     const mores = document.querySelectorAll(".more");
-    console.log(mores);
     mores.forEach(item => {
       item.addEventListener("click", () => {
-        console.log("dasdd");
         item.previousElementSibling.classList.toggle("open");
       });
     });
     window.scrollTo(0,document.body.scrollHeight);
-  }
+  },
+  scrollToTop: false,
 };
 </script>
 

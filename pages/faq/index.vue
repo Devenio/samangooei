@@ -82,7 +82,8 @@ export default {
   },
   mounted () {
     window.scrollTo(0,document.body.scrollHeight);
-  }
+  },
+  scrollToTop: false,
 };
 </script>
 

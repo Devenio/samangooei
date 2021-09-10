@@ -30,7 +30,6 @@ export default {
     let icon = "";
     let color = "";
 
-    console.log(id);
     if (id == 0) {
       status = "تراکنش نامعلوم !";
       icon = "mdi-exclamation-thick";
@@ -53,7 +52,8 @@ export default {
     // 0 => unknown
     // 1 => success
     // 2 => failed
-  }
+  },
+  scrollToTop: false,
 };
 </script>
 

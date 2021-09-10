@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" id="about">
     <v-col cols="12" sm="8" class="d-flex flex-row align-start">
       <div class="switches d-flex flex-column">
         <v-chip
@@ -45,6 +45,7 @@ export default {
       currentItemTitle: ""
     };
   },
+  scrollToTop: false,
   async asyncData() {
     try {
       const { data } = await About.getBiography();
@@ -64,11 +65,12 @@ export default {
       this.changeTab(this.data[0]);
     }
     window.scrollTo(0,document.body.scrollHeight);
+    console.log(document.body.scrollHeight);
+    console.log(this.$router);
   },
   methods: {
     changeTab(item) {
       const activeItem = this.data.find(data => data.title === item.title);
-      console.log(activeItem);
       this.text = activeItem.text;
       this.image = activeItem.image;
     }

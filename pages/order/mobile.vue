@@ -59,7 +59,6 @@ export default {
   methods: {
     changeTab(item) {
       const activeItem = this.data.find(data => data.id === item.id);
-      console.log(activeItem);
       this.text = activeItem.text;
       this.link = activeItem.link;
     }

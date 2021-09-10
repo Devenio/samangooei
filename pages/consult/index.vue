@@ -286,7 +286,6 @@ export default {
         };
         Customers.addRemoteBooking(data)
           .then(res => {
-            console.log(res.data.data);
             this.sendCustomerReq(res.data);
           })
           .catch(err => {
@@ -311,7 +310,6 @@ export default {
         };
         Customers.addPresentBooking(data)
           .then(res => {
-            console.log(res);
             this.sendCustomerReq(res.data);
           })
           .catch(err => {
@@ -323,14 +321,14 @@ export default {
       }
     },
     sendCustomerReq(id) {
-      console.log(id);
       localStorage.setItem("id", id);
       window.open(`http://api.mahdisamangooei.com/customer/request/${id}`);
     }
   },
   mounted () {
     window.scrollTo(0,document.body.scrollHeight);
-  }
+  },
+  scrollToTop: false,
 };
 </script>
 

@@ -78,14 +78,6 @@ export default {
     }
   },
   mounted() {
-    // const mores = document.querySelectorAll(".more");
-    // console.log(mores);
-    // mores.forEach(item => {
-    //   item.addEventListener("click", () => {
-    //     console.log("dasdd");
-    //     item.previousElementSibling.classList.toggle("open");
-    //   });
-    // });
   }
 };
 </script>
