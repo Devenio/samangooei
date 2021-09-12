@@ -210,7 +210,7 @@ export default {
       if (this.date) {
         this.hours = [];
         const date = this.workingDays.find(
-          d => d.day === this.date.replaceAll("/", "-")
+          d => d.day == this.date.replaceAll("/", "-")
         );
         if (this.type === "remote") {
           for (let i = date.startTime; i < date.endTime; i += 0.5) {
@@ -231,8 +231,8 @@ export default {
             let data = {
               text: `ساعت ${i} تا ${i + 1}`,
               value: {
-                startTime: i + "",
-                endTime: i + 1 + ""
+                startTime: i + ".0",
+                endTime: i + 1 + ".0"
               }
             };
             this.hours.push(data);
@@ -243,24 +243,17 @@ export default {
     },
     filterHours(type) {
       try {
-        const datas = [];
-        const filteredHours = [];
+        let datas = [];
         if (type === "remote") {
-          this.reservedDays.filter(day => {
-            day.type === 1 ? datas.push(day) : "";
-          });
+          datas = this.reservedDays.filter(day => day.type === 1);
         } else {
-          this.reservedDays.filter(day => {
-            day.type === 0 ? datas.push(day) : "";
-          });
+          datas = this.reservedDays.filter(day => day.type === 0);
         }
-        datas.filter(data => {
+        datas.forEach(data => {
           this.hours.find((hour, index) => {
-            if (
-              +data.startBookingTime == +hour.value.startTime &&
-              this.date.replaceAll("/", "-") == data.dayBooking
-            ) {
-              this.hours.splice(index, 1);
+            if (hour.value.startTime == data.startBookingTime && this.date.replaceAll("/", "-") == data.dayBooking) {
+              console.log(hour.value.startTime, data.startBookingTime, index);
+              this.hours = this.hours.filter(hour => hour.value.startTime != data.startBookingTime)
             }
           });
         });
@@ -325,10 +318,10 @@ export default {
       window.open(`http://api.mahdisamangooei.com/customer/request/${id}`);
     }
   },
-  mounted () {
-    window.scrollTo(0,document.body.scrollHeight);
+  mounted() {
+    window.scrollTo(0, document.body.scrollHeight);
   },
-  scrollToTop: false,
+  scrollToTop: false
 };
 </script>
 
